@@ -85,6 +85,14 @@
                         "required": true
                     },
                     {
+                        "id": "comment",
+                        "type": "text",
+                        "name": "Comments",
+                        "width": 2,
+                        "height": 4,
+                        "maxLength": 5000
+                    },
+                    {
                         "type": "deleteButton",
                         "name": "Delete"
                     },
@@ -98,6 +106,92 @@
                     }
                 ]
             },
+            {
+                "id": "ActivityForm",
+                "title": "Activity",
+                "url": "/activity",
+                "formFieldList": [
+                    {
+                        "id": "name",
+                        "type": "text",
+                        "name": "Name",
+                        "url": "/activity",
+                        "width": 2,
+                        "required": true
+                    },
+                    {
+                        "id": "date",
+                        "type": "date",
+                        "name": "Date",
+                        "url": "/date",
+                        "width": 2,
+                        "required": true
+                    },
+                    {
+                        "id": "location",
+                        "type": "autocomplete",
+                        "name": "Location",
+                        "url": "/location",
+                        "form": "LocationForm",
+                        "width": 2
+                    },
+                    {
+                        "id": "group",
+                        "type": "autocomplete",
+                        "name": "Group",
+                        "url": "/group",
+                        "form": "GroupForm",
+                        "width": 2
+                    },
+                    {
+                        "id": "friend",
+                        "type": "autocomplete",
+                        "name": "Friend",
+                        "url": "/friend",
+                        "form": "FriendForm",
+                        "width": 2
+                    },
+                    {
+                        "id": "comment",
+                        "type": "text",
+                        "name": "Comments",
+                        "width": 2,
+                        "height": 4,
+                        "maxLength": 5000
+                    },
+                    {
+                        "type": "deleteButton",
+                        "name": "Delete"
+                    },
+                    {
+                        "type": "cancelButton",
+                        "name": "Cancel"
+                    },
+                    {
+                        "type": "okButton",
+                        "name": "Ok"
+                    }
+                ]
+            },
+            { 
+                        "id" : "activitydetailspage",
+                        "elementList": [
+                            {
+                                "type": "backbutton"
+                            },
+                            {
+                                "type": "list",
+                                "name": "Friends in Activity",
+                                "icon": "fa-user",
+                                "color": "blue",
+                                "url": "/activity/:activityKey/friend",
+                                "form": {
+                                    "form": "FriendForm"
+                                }
+                            }
+
+                        ]
+                    },
             {
                 "id": "AddActivityForm",
                 "title": "Activity",
@@ -140,6 +234,20 @@
                         "required": true
                     },
                     {
+                        "id": "creationDate",
+                        "type": "date",
+                        "name": "Erstelldatum",
+                        "required": true
+                    },
+                    {
+                        "id": "comment",
+                        "type": "text",
+                        "name": "Comments",
+                        "width": 2,
+                        "height": 4,
+                        "maxLength": 5000
+                    },
+                    {
                         "type": "deleteButton",
                         "name": "Delete"
                     },
@@ -179,6 +287,13 @@
                         "icon": "fa-wine-glass-alt",
                         "color": "wisteria",
                         "page": "groupspage"
+                    },
+                    {
+                        "type": "button",
+                        "name": "Activitiy",
+                        "icon": "fa-mountain",
+                        "color": "yellow",
+                        "page": "activitypage"
                     }
                 ]
             },
@@ -261,6 +376,41 @@
                         "form": {
                             "form": "GroupForm"
                         }
+                    }
+                ]
+            },
+            {
+                "id": "activitypage",
+                "elementList": [
+                    {
+                        "type": "backbutton"
+                    },
+                    {
+                        "type": "newButton",
+                        "name": "NewActivity",
+                        "icon": "fa-biking",
+                        "color": "pumpkin",
+                        "form": {
+                            "form": "ActivityForm"
+                        }
+                    },
+                    {
+                        "type": "list",
+                        "icon": "fa-biking",
+                        "color": "blue",
+                        "search": true,
+                        "url": "/activity",
+                        "form": {
+                            "form": "ActivityForm"
+                        }
+                    },
+            
+                    {
+                        "type": "button",
+                        "name": "View Participants",
+                        "icon": "fa-user",
+                        "color": "green", 
+                        "page": "activitydetailspage"
                     }
                 ]
             }
